@@ -1,0 +1,12 @@
+{{ define "collection-subpage"}}
+{{$PageData := index .DeepDataMerge.Collections .PageURL}}
+{{ template "head" .}}
+
+{{ range $PageData.Items }}
+<article>
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <p>{{ .Summary }}</p>
+</article>
+{{ end }}
+
+{{ end }}

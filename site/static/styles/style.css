@@ -1,0 +1,40 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    color: #0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    padding: 20px;
+}
+
+.terminal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #0f0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal.hidden {
+    display: none;
+}
+
+#terminal-output {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+#terminal-input {
+    background: none;
+    border: none;
+    color: #0f0;
+    width: 100%;
+    outline: none;
+}
