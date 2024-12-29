@@ -1,26 +1,29 @@
 :root {
   /* Terminal colours */
 
-  --bg: #282828;
-  --bg-soft: #32302f;
-  --bg-dark: #1d2021;
-  --fg: #ebdbb2;
-  --red: #cc241d;
-  --green: #98971a;
-  --yellow: #d79921;
+  --bg: #06080A;
+  --bg-soft:#1e1f22;
+  --bg-dark: #24232f;
+  --fg: #A97C73;
+  --red: #b25e5e;
+  --green: #A97C73;
+  --yellow: #A97C73;
   --blue: #458588;
   --purple: #b16286;
-  --aqua: #689d6a;
+  --aqua: #A97C73;
   --gray: #a89984;
   --font: "Press Start 2P";
 
-  --background: rgb(255, 252, 240);
-  --primary-colour: rgb(16, 15, 15);
+
+
+  
+  --background: #06080A;
+  --primary-colour: #A97C73;
   --font-colour: var(--primary-colour);
   --heading-font-colour: var(--primary-colour);
   --postcard-link-colour: var(--primary-colour);
   --navbar-link-colour: var(--primary-colour);
-  --link-colour: var(--primary-colour);
+  --link-colour: #689d6a;
   --separator-colour: var(--primary-colour);
 
   --h1-heading-font-size: 1.8rem;
@@ -64,6 +67,7 @@ body {
 .body-container {
   margin: auto;
   padding: 30px;
+  padding-bottom: 5px;
   width: 750px;
   height: 100%;
 
@@ -80,6 +84,7 @@ p {
 header,
 footer {
   flex: 0;
+  
 }
 
 header {
@@ -88,7 +93,7 @@ header {
 }
 
 footer {
-  padding: 10px 0 10px;
+  /* padding: 10px 0 10px; */
   /* border-top: 2px solid var(--separator-colour); */
   color: var(--font-colour);
   text-align: center;
@@ -366,18 +371,19 @@ code {
 }
 
 .terminal-wrapper a {
-  color: var(--fg);
+  color: #689d6a;
 }
 
 .terminal {
   background-color: var(--bg-dark);
   border: 2px solid var(--gray);
   border-radius: 4px;
-  width: 600px;
-  height: 400px;
+  width: 95vw;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  opacity: 0.7;
 }
 
 .terminal-header {
