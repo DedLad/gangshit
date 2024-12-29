@@ -1,12 +1,46 @@
 {{ define "all-posts"}}
-{{$PageData := .TemplateData}}
+{{$PageData := index .DeepDataMerge.Collections .PageURL}}
 {{ template "head" .}}
 
-{{ range .Site.Pages }}
-<article>
-    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-    <p>{{ .Summary }}</p>
-</article>
-{{ end }}
+<body>
+  <div class="body-container">
 
-{{ end }}
+    {{template "header" .}}
+
+    <div class="body">
+
+      {{template "terminal"}}
+
+      <div class="posts">
+        <h2>Posts</h2>
+
+        {{range $Post := index .DeepDataMerge.CollectionsMap .PageURL}}
+        <div class="post-card">
+          <div class="post-card-date">{{$Post.Frontmatter.Date}}</div>
+          <div class="post-card-link-and-description">
+            <a class="post-card-link" href="/{{$Post.CompleteURL}}">
+              {{$Post.Frontmatter.Title}}
+            </a>
+            <div class="post-card-description">{{$Post.Frontmatter.Description}}</div>
+          </div>
+          <div class="post-tags-placeholder">
+            {{range $Post.Frontmatter.Tags}}
+            <a href="/tags/{{.}}.html">
+              {{.}}
+            </a>
+            {{end}}
+          </div>
+        </div>
+        {{end}}
+
+      </div>
+    </div>
+
+    {{template "footer" .}}
+
+  </div>
+</body>
+
+</html>
+
+{{ end}}

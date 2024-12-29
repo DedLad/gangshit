@@ -1,5 +1,27 @@
-{{ define "header" }}
+{{define "header"}}
+<!-- If the template for a particular url does not exist(posts.html), setting it to the specific page template data -->
+{{ $PageData := index .DeepDataMerge.Templates .PageURL }} {{if eq $PageData nil
+}} {{ $PageData = .TemplateData }} {{end}}
+
 <header>
-    <h1>{{ .Site.Title }}</h1>
+    <nav>
+        <div class="nav-links-search">
+            <div class="nav-links">
+                {{range $index_no, $map := .DeepDataMerge.LayoutConfig.Navbar}}
+                {{range $key, $value := $map }}
+                <a class="navitem" href="/{{ $value }}">{{ $key }}</a>
+                {{ end }} {{end}}
+            </div>
+            <!-- <div class="search">{{template "search" .}}</div> -->
+        </div>
+
+        <!--  Theme Toggle-->
+
+        <span class="theme-toggle-wrapper">
+            <span class="material-symbols-outlined" id="theme-toggle-button">
+                light_mode
+            </span>
+        </span>
+    </nav>
 </header>
-{{ end }}
+{{end}}

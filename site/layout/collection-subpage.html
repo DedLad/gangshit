@@ -2,11 +2,35 @@
 {{$PageData := index .DeepDataMerge.Collections .PageURL}}
 {{ template "head" .}}
 
-{{ range $PageData.Items }}
-<article>
-    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-    <p>{{ .Summary }}</p>
-</article>
-{{ end }}
+<body>
+  <div class="body-container">
 
-{{ end }}
+    {{template "header" .}}
+
+    <div class="body">
+
+      {{template "terminal"}}
+
+      <div class="tagged-posts">
+        <h2>Posts tagged
+          <span class="tag-subpage-keyword">{{$PageData.Frontmatter.Title}}</span>
+        </h2>
+        <div class="post-tags-placeholder tagpage-tags-placeholder">
+
+          {{$CollectionSet := index .DeepDataMerge.CollectionsMap .PageURL}}
+          {{range $CollectionSet }}
+          <a href="/{{.CompleteURL}}">{{.Frontmatter.Title}}</a>
+          {{end}}
+
+        </div>
+      </div>
+    </div>
+
+    {{template "footer" .}}
+
+  </div>
+</body>
+
+</html>
+
+{{ end}}

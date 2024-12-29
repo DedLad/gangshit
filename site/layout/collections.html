@@ -2,15 +2,33 @@
 {{$PageData := .TemplateData}}
 {{ template "head" .}}
 
-{{ range .Site.Collections }}
-<section>
-    <h2>{{ .Title }}</h2>
-    <ul>
-        {{ range .Pages }}
-        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-        {{ end }}
-    </ul>
-</section>
-{{ end }}
+<body>
+  <div class="body-container">
 
-{{ end }}
+    {{template "header" .}}
+
+    <div class="body">
+
+      {{template "terminal"}}
+
+      <div class="all-tags">
+        <h2>Collections</h2>
+        <div class="post-tags-placeholder tagpage-tags-placeholder">
+
+          {{range .CollectionNames}}
+          <a href="/collections/{{.}}.html">{{.}}</a>
+          {{end}}
+
+        </div>
+      </div>
+
+    </div>
+
+    {{template "footer" .}}
+
+  </div>
+</body>
+
+</html>
+
+{{ end}}

@@ -1,9 +1,8 @@
 ---
-title: "Contact"
-tags: ["info"]
-collections: ["pages"]
+title: Contact
+date: 2024-05-04
+description: >
+  This page contains my contact information
 ---
 
-# Contact Us
-
-This is the contact page. Get in touch with us here.
+## Contact information

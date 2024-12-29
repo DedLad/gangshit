@@ -1,0 +1,7 @@
+[build]
+base = "/"
+publish = "site/rendered"
+command = "chmod +x build.sh;./build.sh"
+
+[[plugins]]
+package = "@netlify/plugin-lighthouse"

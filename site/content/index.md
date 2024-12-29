@@ -1,7 +1,10 @@
 ---
-title: "Home"
+title: Adhesh Athrey
+date: 2024-12-29
+description: >
+  Home Page
 ---
 
-# Welcome to the Retro Minimal Site
+## Hello! I'm Adhesh
 
-This is the homepage of the retro minimal site. Press any key to open the terminal and explore the site using commands.
+A computer science student and tech enthusiast. Welcome to my home on the internet!

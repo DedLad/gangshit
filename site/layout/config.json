@@ -10,19 +10,16 @@
       "Projects": "projects.html"
     },
     {
-      "POW": "pow.html"
-    },
-    {
       "Tags": "tags.html"
     },
     {
       "Contact": "contact.html"
     }
   ],
-  "baseURL": "https://sudhir.live",
-  "siteTitle": "Anirudh Sudhir",
-  "author": "Anirudh Sudhir",
-  "siteScripts" : ["theme.js"],
+  "baseURL": "",
+  "siteTitle": "Adhesh Athrey",
+  "author": "Adhesh Athrey",
+  "siteScripts": ["theme.js", "terminal.js"],
   "collectionLayouts": {
     "collections/posts.html": "all-posts"
   }
