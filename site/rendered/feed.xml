@@ -8,7 +8,7 @@
    <language>en-IN</language>
    <webMaster>Adhesh Athrey</webMaster>
    <copyright></copyright>
-   <lastBuildDate>Mon, 30 Dec 2024 13:47:18 +0530</lastBuildDate>
+   <lastBuildDate>Mon, 30 Dec 2024 15:32:28 +0530</lastBuildDate>
    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adhesh Athrey</title>
@@ -19,20 +19,20 @@
       <description>&lt;h2 id=&#34;hello-im-adhesh&#34;&gt;Hello! I&#39;m Adhesh&lt;/h2&gt;&#xA;&lt;p&gt;A computer science student and tech enthusiast. Welcome to my home on the internet!&lt;/p&gt;&#xA;</description>
     </item>
     <item>
-      <title>Contact</title>
-      <link>/contact.html/</link>
-      <pubDate>Sat, 04 May 2024 05:30:00 +0530</pubDate>
-      <author>Adhesh Athrey</author>
-      <guid>/contact.html</guid>
-      <description>&lt;h2 id=&#34;contact-information&#34;&gt;Contact information&lt;/h2&gt;&#xA;</description>
-    </item>
-    <item>
       <title>Projects</title>
       <link>/projects.html/</link>
       <pubDate>Sat, 04 May 2024 05:30:00 +0530</pubDate>
       <author>Adhesh Athrey</author>
       <guid>/projects.html</guid>
       <description>&lt;h1 id=&#34;projects&#34;&gt;Projects&lt;/h1&gt;&#xA;&lt;p&gt;All of my projects are hosted on &lt;a href=&#34;https://github.com/DedLad&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/anna-ssg/Anna&#34;&gt;Anna&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A lightning-fast static site generator written in Go.&lt;/p&gt;&#xA;&lt;p&gt;This project is maintained by &lt;a href=&#34;https://github.com/DedLad&#34;&gt;Adhesh Athrey&lt;/a&gt;, &lt;a href=&#34;https://github.com/polarhive&#34;&gt;Nathan Paul&lt;/a&gt;, &lt;a href=&#34;https://github.com/anirudhsudhir&#34;&gt;Anirudh Sudhir&lt;/a&gt;, and &lt;a href=&#34;https://github.com/bwaklog&#34;&gt;Aditya Hegde&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Link to the &lt;a href=&#34;/posts/building-anna&#34;&gt;blog&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>Contact</title>
+      <link>/contact.html/</link>
+      <pubDate>Sat, 04 May 2024 05:30:00 +0530</pubDate>
+      <author>Adhesh Athrey</author>
+      <guid>/contact.html</guid>
+      <description>&lt;h2 id=&#34;contact-information&#34;&gt;Contact information&lt;/h2&gt;&#xA;</description>
     </item>
     <item>
       <title>test page</title>

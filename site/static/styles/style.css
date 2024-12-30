@@ -1,3 +1,7 @@
+@font-face {
+  font-family:IosevkaRegular ;
+  src: url(/static/fonts/IosevkaCustom-Regular.ttf);
+}
 :root {
   /* Terminal colours */
 
@@ -12,7 +16,7 @@
   --purple: #b16286;
   --aqua: #A97C73;
   --gray: #a89984;
-  --font: "Press Start 2P";
+  /* --font: "Press Start 2P"; */
 
 
 
@@ -26,13 +30,13 @@
   --link-colour: #689d6a;
   --separator-colour: var(--primary-colour);
 
-  --h1-heading-font-size: 1.8rem;
+  --h1-heading-font-size: 1.5rem;
   --navbar-font-size: 1rem;
-  --body-font-size: 1.2rem;
-  --code-font-size: 0.9rem;
-  --post-link-font-size: 1.3rem;
+  --body-font-size: 1rem;
+  --code-font-size: 1rem;
+  --post-link-font-size: 1rem;
 
-  --body-font-family: "EB Garamond", serif;
+  --body-font-family: "IosevkaRegular", sans-serif;
   --heading-font-family: "Inter", sans-serif;
   --code-font-family: "JetBrains Mono", serif;
   --post-card-heading-font-family: var(--heading-font-family);
@@ -375,7 +379,7 @@ code {
 }
 
 .terminal {
-  background-color: rgba(36, 35, 47, 0.7); /* Semi-transparent background */
+  background-color: rgba(36, 35, 47, 0.7); 
   border: 2px solid var(--gray);
   border-radius: 4px;
   width: 95vw;
@@ -383,12 +387,12 @@ code {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  backdrop-filter: blur(10px); /* Frosted glass effect */
+  backdrop-filter: blur(10px); 
   opacity: 0.9;
 }
 
 .terminal-header {
-  background-color: rgba(30, 31, 34, 0.8); /* Semi-transparent background */
+  background-color: rgba(30, 31, 34, 0.8); 
   padding: 0.5rem;
   display: flex;
   justify-content: space-between;
@@ -429,15 +433,23 @@ code {
 
 .prompt {
   color: var(--green);
+  font-size: var(--body-font-size);
 }
 
 .terminal-input {
   background: transparent;
   border: none;
   color: var(--fg);
-  font-family: var(--font), monospace;
+  font-family: var(--body-font-family);
   flex: 1;
   outline: none;
+  font-size: var(--body-font-size);
+}
+
+.terminal-input input[type="text" i] {
+  padding: 0;
+  padding-block: 0px;
+  padding-inline: 0px;
 }
 
 .terminal-toggle {
@@ -449,7 +461,7 @@ code {
   color: var(--yellow);
   padding: 0.5rem 1rem;
   cursor: pointer;
-  font-family: var(--font), monospace;
+
   border-radius: 4px;
 }
 

@@ -71,7 +71,6 @@ class Terminal {
     this.output.appendChild(line);
     this.scrollToBottom();
   }
-
   handleCommand() {
     const cmdLine = this.input.value.trim();
     this.println(`guest@internethome:~$ ${cmdLine}`, "var(--green)");
@@ -98,7 +97,7 @@ class Terminal {
   }
 
   showHelp() {
-    const helpText = `<pre>
+    const helpText = `<pre style="font-family:IosevkaRegular;">
 Available commands:
   pwd           - Print current page path
   cd <path>           - Navigate to a page (e.g., cd index, cd posts/my-post)
