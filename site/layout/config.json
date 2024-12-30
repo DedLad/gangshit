@@ -11,9 +11,6 @@
     },
     {
       "Tags": "tags.html"
-    },
-    {
-      "Contact": "contact.html"
     }
   ],
   "baseURL": "",
