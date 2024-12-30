@@ -8,6 +8,7 @@ class Terminal {
     this.currentPath = window.location.pathname;
     this.navbar = document.querySelector(".responsive-header");
 
+    //Had an issue where JS had no context about existence of navbar, so it wouldnt work the first time, so i had to fetch the context before itself
     this.navbar.style.display = getComputedStyle(this.navbar).display;
 
     this.commands = {
@@ -57,6 +58,10 @@ class Terminal {
         this.autoComplete();
       }
     });
+
+    this.terminal.addEventListener("click", () => {
+      this.input.focus();
+    });
   }
 
   println(text, color = "var(--fg)") {
@@ -64,7 +69,7 @@ class Terminal {
     line.style.color = color;
     line.innerHTML = text;
     this.output.appendChild(line);
-    this.output.scrollTop = this.output.scrollHeight;
+    this.scrollToBottom();
   }
 
   handleCommand() {
@@ -85,6 +90,11 @@ class Terminal {
     }
 
     this.input.value = "";
+    this.scrollToBottom();
+  }
+
+  scrollToBottom() {
+    this.output.scrollTop = this.output.scrollHeight;
   }
 
   showHelp() {
@@ -184,6 +194,7 @@ Available commands:
 
   clear() {
     this.output.innerHTML = "";
+    this.scrollToBottom();
   }
 
   toggleNavbar() {
