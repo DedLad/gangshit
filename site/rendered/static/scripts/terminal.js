@@ -6,6 +6,9 @@ class Terminal {
     this.toggleBtn = document.querySelector(".terminal-toggle");
     this.closeBtn = document.querySelector(".terminal-close");
     this.currentPath = window.location.pathname;
+    this.navbar = document.querySelector(".responsive-header");
+
+    this.navbar.style.display = getComputedStyle(this.navbar).display;
 
     this.commands = {
       help: this.showHelp.bind(this),
@@ -184,11 +187,10 @@ Available commands:
   }
 
   toggleNavbar() {
-    const navbar = document.querySelector(".responsive-header");
-    if (navbar.style.display === "none") {
-      navbar.style.display = "block";
+    if (this.navbar.style.display === "none") {
+      this.navbar.style.display = "block";
     } else {
-      navbar.style.display = "none";
+      this.navbar.style.display = "none";
     }
   }
 
@@ -198,7 +200,7 @@ Available commands:
     const possibleCommands = Object.keys(this.commands).filter((command) =>
       command.startsWith(cmd)
     );
-  
+
     if (args.length === 0) {
       if (possibleCommands.length === 1) {
         this.input.value = `${possibleCommands[0]} `;
@@ -210,7 +212,7 @@ Available commands:
       const possiblePaths = Object.keys(this.siteData).filter((key) =>
         key.startsWith(partialPath)
       );
-  
+
       if (possiblePaths.length === 1) {
         this.input.value = `cd ${possiblePaths[0]}`;
       } else if (possiblePaths.length > 1) {
@@ -221,7 +223,7 @@ Available commands:
     } else if (cmd === "grep") {
       const partialTag = args.join(" ").toLowerCase();
       const possibleTags = [];
-  
+
       Object.keys(this.siteData).forEach((key) => {
         const page = this.siteData[key];
         if (page["Tags"] != null) {
@@ -232,7 +234,7 @@ Available commands:
           });
         }
       });
-  
+
       if (possibleTags.length === 1) {
         this.input.value = `grep ${possibleTags[0]}`;
       } else if (possibleTags.length > 1) {
@@ -242,7 +244,7 @@ Available commands:
       }
     }
   }
-  
+
   findCommonPrefix(strings) {
     if (!strings.length) return '';
     const sortedStrings = strings.slice().sort();
