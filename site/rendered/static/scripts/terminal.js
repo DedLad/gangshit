@@ -123,9 +123,9 @@ class Terminal {
     const helpText = `<pre style="font-family:IosevkaRegular;">
 Available commands:
   pwd           - Print current page path
-  cd <path>     - Navigate to a page (e.g., cd posts/my-post)
-  ls            - List available pages in current directory
-  grep <term>   - Search for content containing the term
+  cd <path>           - Navigate to a page (e.g., cd posts/building-anna/index.html)
+  ls            - List available pages on the site
+  grep <term>         - Search for content containing the term
   clear         - Clear terminal output
   help          - Show this help message
   toggle-navbar - Toggle the visibility of the navbar

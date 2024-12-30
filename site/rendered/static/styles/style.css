@@ -24,7 +24,7 @@
   --background: #06080A;
   --primary-colour: #A97C73;
   --font-colour: var(--primary-colour);
-  --heading-font-colour: var(--primary-colour);
+  --heading-font-colour: var(--link-colour);
   --postcard-link-colour: var(--primary-colour);
   --navbar-link-colour: var(--primary-colour);
   --link-colour: #689d6a;

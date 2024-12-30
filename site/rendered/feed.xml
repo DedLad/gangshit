@@ -8,7 +8,7 @@
    <language>en-IN</language>
    <webMaster>Adhesh Athrey</webMaster>
    <copyright></copyright>
-   <lastBuildDate>Tue, 31 Dec 2024 00:09:18 +0530</lastBuildDate>
+   <lastBuildDate>Tue, 31 Dec 2024 01:16:25 +0530</lastBuildDate>
    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adhesh Athrey</title>
@@ -16,15 +16,7 @@
       <pubDate>Sun, 29 Dec 2024 05:30:00 +0530</pubDate>
       <author>Adhesh Athrey</author>
       <guid>/index.html</guid>
-      <description>&lt;h2 id=&#34;hello-im-adhesh&#34;&gt;Hello! I&#39;m Adhesh&lt;/h2&gt;&#xA;&lt;p&gt;A computer science student and tech enthusiast. Welcome to my home on the internet!&lt;/p&gt;&#xA;</description>
-    </item>
-    <item>
-      <title>Projects</title>
-      <link>/projects.html/</link>
-      <pubDate>Sat, 04 May 2024 05:30:00 +0530</pubDate>
-      <author>Adhesh Athrey</author>
-      <guid>/projects.html</guid>
-      <description>&lt;h1 id=&#34;projects&#34;&gt;Projects&lt;/h1&gt;&#xA;&lt;p&gt;All of my projects are hosted on &lt;a href=&#34;https://github.com/DedLad&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/anna-ssg/Anna&#34;&gt;Anna&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A lightning-fast static site generator written in Go.&lt;/p&gt;&#xA;&lt;p&gt;This project is maintained by &lt;a href=&#34;https://github.com/DedLad&#34;&gt;Adhesh Athrey&lt;/a&gt;, &lt;a href=&#34;https://github.com/polarhive&#34;&gt;Nathan Paul&lt;/a&gt;, &lt;a href=&#34;https://github.com/anirudhsudhir&#34;&gt;Anirudh Sudhir&lt;/a&gt;, and &lt;a href=&#34;https://github.com/bwaklog&#34;&gt;Aditya Hegde&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Link to the &lt;a href=&#34;/posts/building-anna&#34;&gt;blog&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;</description>
+      <description>&lt;h2 id=&#34;hello-im-adhesh&#34;&gt;Hello! I&#39;m Adhesh&lt;/h2&gt;&#xA;&lt;p&gt;An undergrad computer science student@PESU. Welcome to my site!&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-are-my-interests&#34;&gt;What are my interests?&lt;/h2&gt;&#xA;&lt;p&gt;Hmm quite complicated, I build anything that looks cool, so that&#39;s that.&#xA;I am currently working on:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Hive: &lt;a href=&#34;https://github.com/DedLad/hive/&#34;&gt;Bitcask clone in GoLang&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Nebula: &lt;span style=&#34;color:#689d6a;size=1rem;&#34;&gt;x86 OS implemented in Rust (I will be updating a link to it soon)&lt;/span&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;writing&#34;&gt;Writing&lt;/h2&gt;&#xA;&lt;p&gt;There is a high chance that some work here is incomplete.&#xA;&lt;br&gt;Infact this site is quite incomplete.&lt;/p&gt;&#xA;&lt;p&gt;Why? Well i would never put anything out if I wanted perfection or completion, sounded like a reason for procrastination, so here we are, we move the right direction step by step.&lt;/p&gt;&#xA;&lt;p&gt;This site serves as a testament to my journey of progress, showcasing my interests and various projects and honestly anything.&lt;/p&gt;&#xA;&lt;h2 id=&#34;wait&#34;&gt;Wait!!&lt;/h2&gt;&#xA;&lt;p&gt;Before we move away from here, let me show you a cool trick.&#xA;&lt;br&gt;Ok how about we start by clicking any key on your keyboard.&#xA;&lt;br&gt;OHH! a computer terminal? Yes, lets see what we can do by entering &lt;span style=&#34;color:#689d6a;size=1rem;&#34;&gt;&lt;code&gt;help&lt;/code&gt;&lt;/span&gt;.&lt;/p&gt;&#xA;&lt;p&gt;And thats how you can navigate, cool right?&#xA;&lt;br&gt;You can close the terminal by clicking &lt;span style=&#34;color:#689d6a;size=1rem;&#34;&gt;&lt;code&gt;esc&lt;/code&gt;&lt;/span&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;span style=&#34;color:#689d6a;size=1rem;&#34;&gt;PS&lt;/span&gt;: It has tab auto-completion like the terminal you use :0&lt;/p&gt;&#xA;&lt;p&gt;&lt;span style=&#34;color:#689d6a;size=1rem;&#34;&gt;PPS&lt;/span&gt;: Still trying to get it to work on phones well:/ navbar for the win.&lt;/p&gt;&#xA;</description>
     </item>
     <item>
       <title>Contact</title>
@@ -33,6 +25,14 @@
       <author>Adhesh Athrey</author>
       <guid>/contact.html</guid>
       <description>&lt;h2 id=&#34;contact-information&#34;&gt;Contact information&lt;/h2&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>Projects</title>
+      <link>/projects.html/</link>
+      <pubDate>Sat, 04 May 2024 05:30:00 +0530</pubDate>
+      <author>Adhesh Athrey</author>
+      <guid>/projects.html</guid>
+      <description>&lt;h1 id=&#34;projects&#34;&gt;Projects&lt;/h1&gt;&#xA;&lt;p&gt;All of my projects are hosted on &lt;a href=&#34;https://github.com/DedLad&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/anna-ssg/Anna&#34;&gt;Anna&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A lightning-fast static site generator written in Go.&lt;/p&gt;&#xA;&lt;p&gt;This project is maintained by &lt;a href=&#34;https://github.com/DedLad&#34;&gt;Adhesh Athrey&lt;/a&gt;, &lt;a href=&#34;https://github.com/polarhive&#34;&gt;Nathan Paul&lt;/a&gt;, &lt;a href=&#34;https://github.com/anirudhsudhir&#34;&gt;Anirudh Sudhir&lt;/a&gt;, and &lt;a href=&#34;https://github.com/bwaklog&#34;&gt;Aditya Hegde&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Link to the &lt;a href=&#34;/posts/building-anna&#34;&gt;blog&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;</description>
     </item>
     <item>
       <title>test page</title>
