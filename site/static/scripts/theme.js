@@ -12,8 +12,8 @@ function switchTheme(e) {
   }
 }
 
-const toggleSwitch = document.getElementById("theme-toggle-button");
-toggleSwitch.addEventListener("click", switchTheme);
+// const toggleSwitch = document.getElementById("theme-toggle-button");
+// toggleSwitch.addEventListener("click", switchTheme);
 
 let currentTheme = localStorage.getItem("theme")
   ? localStorage.getItem("theme")

@@ -7,8 +7,8 @@ class Terminal {
     this.closeBtn = document.querySelector(".terminal-close");
     this.currentPath = window.location.pathname;
     this.navbar = document.querySelector(".responsive-header");
+    this.contentIndex = {};
 
-    //Had an issue where JS had no context about existence of navbar, so it wouldnt work the first time, so i had to fetch the context before itself
     this.navbar.style.display = getComputedStyle(this.navbar).display;
 
     this.commands = {
@@ -23,7 +23,7 @@ class Terminal {
 
     this.setupEventListeners();
     this.siteData = null;
-    this.fetchSiteData();
+    this.fetchSiteData().then(() => this.buildContentIndex());
   }
 
   async fetchSiteData() {
@@ -33,6 +33,29 @@ class Terminal {
     } catch (error) {
       console.error("Error fetching site data:", error);
     }
+  }
+
+  async buildContentIndex() {
+    var parser = new DOMParser();
+    if (!this.siteData) return;
+    for (const key of Object.keys(this.siteData)) {
+      const page = this.siteData[key];
+      try {
+        const response = await fetch("/" + page.CompleteURL);
+        var data = await response.text();
+        const content = parser.parseFromString(data, "text/html").body.textContent;
+        this.contentIndex[key] = {
+          content: content.toLowerCase(),
+          url: page.CompleteURL,
+          title: page.Frontmatter?.Title || page.CompleteURL,
+          description: page.Frontmatter?.Description || "",
+          tags: page.Tags || []
+        };
+      } catch (error) {
+        console.error(`Error fetching content for ${page.CompleteURL}:`, error);
+      }
+    }
+    // console.log("Content index built:", this.contentIndex);
   }
 
   setupEventListeners() {
@@ -71,13 +94,13 @@ class Terminal {
     this.output.appendChild(line);
     this.scrollToBottom();
   }
+
   handleCommand() {
     const cmdLine = this.input.value.trim();
     this.println(`guest@internethome:~$ ${cmdLine}`, "var(--green)");
 
     if (cmdLine) {
       const [cmd, ...args] = cmdLine.split(" ");
-
       if (this.commands[cmd]) {
         this.commands[cmd](args);
       } else {
@@ -100,13 +123,13 @@ class Terminal {
     const helpText = `<pre style="font-family:IosevkaRegular;">
 Available commands:
   pwd           - Print current page path
-  cd <path>           - Navigate to a page (e.g., cd index, cd posts/my-post)
+  cd <path>     - Navigate to a page (e.g., cd posts/my-post)
   ls            - List available pages in current directory
-  grep <term>         - Search for content containing the term
+  grep <term>   - Search for content containing the term
   clear         - Clear terminal output
   help          - Show this help message
-  toggle-navbar - Toggle the visibility of the navbar</pre>
-`;
+  toggle-navbar - Toggle the visibility of the navbar
+</pre>`;
     this.println(helpText, "var(--yellow)");
   }
 
@@ -124,7 +147,6 @@ Available commands:
     if (!path.endsWith(".html")) {
       path += ".html";
     }
-
     if (path.startsWith("/")) {
       path = path.slice(1);
     }
@@ -132,7 +154,6 @@ Available commands:
     let pageExists = false;
     Object.keys(this.siteData).forEach((key) => {
       const page = this.siteData[key];
-
       if (page.CompleteURL === path) {
         pageExists = true;
       }
@@ -150,27 +171,42 @@ Available commands:
       this.println("Usage: grep <search-term>", "var(--red)");
       return;
     }
-
+    
     const term = args.join(" ").toLowerCase();
-    let results = [];
-    Object.keys(this.siteData).forEach((key) => {
+    const results = new Set();
+  
+    for (const key of Object.keys(this.siteData)) {
       const page = this.siteData[key];
-
-      if (page["Tags"] != null) {
-        for (let tag of page["Tags"]) {
-          tag = tag.toLowerCase();
-          if (tag == term) {
-            results.push(page);
-          }
-        }
+      let found = false;
+  
+      if (page.Tags?.some((tag) => tag.toLowerCase().includes(term))) {
+        found = true;
       }
-    });
-
-    if (results?.length) {
-      this.println(`Found ${results.length} results:`, "var(--yellow)");
-      results.forEach((page) => {
+      if (
+        page.Frontmatter?.Title?.toLowerCase().includes(term) ||
+        page.Frontmatter?.Description?.toLowerCase().includes(term)
+      ) {
+        found = true;
+      }
+  
+      if (found) {
+        results.add(key);
+      }
+    }
+  
+    for (const key of Object.keys(this.contentIndex)) {
+      const data = this.contentIndex[key];
+      if (data.content.includes(term)) {
+        results.add(key);
+      }
+    }
+  
+    if (results.size > 0) {
+      this.println(`Found ${results.size} results:`, "var(--yellow)");
+      results.forEach((key) => {
+        const page = this.siteData[key];
         this.println(
-          `- ${page.CompleteURL}: <a href="/${page.CompleteURL}">${page.CompleteURL}</a>`,
+          `<a href="/${page.CompleteURL}">${page.CompleteURL}</a>`,
           "var(--aqua)"
         );
       });
