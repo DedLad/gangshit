@@ -375,7 +375,7 @@ code {
 }
 
 .terminal {
-  background-color: var(--bg-dark);
+  background-color: rgba(36, 35, 47, 0.7); /* Semi-transparent background */
   border: 2px solid var(--gray);
   border-radius: 4px;
   width: 95vw;
@@ -383,11 +383,12 @@ code {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  opacity: 0.7;
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  opacity: 0.9;
 }
 
 .terminal-header {
-  background-color: var(--bg-soft);
+  background-color: rgba(30, 31, 34, 0.8); /* Semi-transparent background */
   padding: 0.5rem;
   display: flex;
   justify-content: space-between;

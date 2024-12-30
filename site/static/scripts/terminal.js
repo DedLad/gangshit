@@ -1,4 +1,3 @@
-// static/scripts/terminal.js
 class Terminal {
   constructor() {
     this.terminal = document.querySelector(".terminal-wrapper");
@@ -15,6 +14,7 @@ class Terminal {
       grep: this.search.bind(this),
       clear: this.clear.bind(this),
       ls: this.listContents.bind(this),
+      navbar: this.toggleNavbar.bind(this),
     };
 
     this.setupEventListeners();
@@ -33,8 +33,10 @@ class Terminal {
 
   setupEventListeners() {
     const body = document.querySelector("body");
-    body.addEventListener("keydown", () => {
-      if (this.terminal.style.display === "none") {
+    body.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        this.terminal.style.display = "none";
+      } else if (this.terminal.style.display === "none") {
         this.terminal.style.display = "block";
         this.input.focus();
       }
@@ -47,6 +49,9 @@ class Terminal {
     this.input.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         this.handleCommand();
+      } else if (e.key === "Tab") {
+        e.preventDefault();
+        this.autoComplete();
       }
     });
   }
@@ -71,7 +76,7 @@ class Terminal {
       } else {
         this.println(
           `Command not found: ${cmd}. Type 'help' for available commands.`,
-          "var(--red)",
+          "var(--red)"
         );
       }
     }
@@ -88,6 +93,7 @@ Available commands:
   grep <term>   - Search for content containing the term
   clear         - Clear terminal output
   help          - Show this help message
+  toggle - Toggle the visibility of the navbar
 `;
     this.println(helpText, "var(--yellow)");
   }
@@ -111,7 +117,6 @@ Available commands:
       path = path.slice(1);
     }
 
-    // Check if path exists in site data
     let pageExists = false;
     Object.keys(this.siteData).forEach((key) => {
       const page = this.siteData[key];
@@ -140,10 +145,8 @@ Available commands:
       const page = this.siteData[key];
 
       if (page["Tags"] != null) {
-        console.log(page["Tags"]);
         for (let tag of page["Tags"]) {
           tag = tag.toLowerCase();
-          console.log(tag);
           if (tag == term) {
             results.push(page);
           }
@@ -156,7 +159,7 @@ Available commands:
       results.forEach((page) => {
         this.println(
           `- ${page.CompleteURL}: <a href="/${page.CompleteURL}">${page.CompleteURL}</a>`,
-          "var(--aqua)",
+          "var(--aqua)"
         );
       });
     } else {
@@ -167,14 +170,11 @@ Available commands:
   listContents() {
     const currentDir = this.currentPath.split("/").slice(0, -1).join("/");
     if (this.siteData) {
-      console.log("enter 1");
       Object.keys(this.siteData).forEach((key) => {
         const page = this.siteData[key];
-        console.log("enter 2");
         this.println(`- ${page.CompleteURL}`, "var(--aqua)");
       });
     } else {
-      console.log("enter 3");
       this.println("No pages found in current directory", "var(--gray)");
     }
   }
@@ -182,9 +182,80 @@ Available commands:
   clear() {
     this.output.innerHTML = "";
   }
+
+  toggleNavbar() {
+    const navbar = document.querySelector(".responsive-header");
+    if (navbar.style.display === "none") {
+      navbar.style.display = "block";
+    } else {
+      navbar.style.display = "none";
+    }
+  }
+
+  autoComplete() {
+    const inputValue = this.input.value.trim();
+    const [cmd, ...args] = inputValue.split(" ");
+    const possibleCommands = Object.keys(this.commands).filter((command) =>
+      command.startsWith(cmd)
+    );
+  
+    if (args.length === 0) {
+      if (possibleCommands.length === 1) {
+        this.input.value = `${possibleCommands[0]} `;
+      } else if (possibleCommands.length > 1) {
+        this.println(`Possible commands: ${possibleCommands.join(", ")}`, "var(--yellow)");
+      }
+    } else if (cmd === "cd") {
+      const partialPath = args.join(" ");
+      const possiblePaths = Object.keys(this.siteData).filter((key) =>
+        key.startsWith(partialPath)
+      );
+  
+      if (possiblePaths.length === 1) {
+        this.input.value = `cd ${possiblePaths[0]}`;
+      } else if (possiblePaths.length > 1) {
+        const commonPrefix = this.findCommonPrefix(possiblePaths);
+        this.input.value = `cd ${commonPrefix}`;
+        this.println(`Possible paths: ${possiblePaths.join(", ")}`, "var(--yellow)");
+      }
+    } else if (cmd === "grep") {
+      const partialTag = args.join(" ").toLowerCase();
+      const possibleTags = [];
+  
+      Object.keys(this.siteData).forEach((key) => {
+        const page = this.siteData[key];
+        if (page["Tags"] != null) {
+          page["Tags"].forEach((tag) => {
+            if (tag.toLowerCase().startsWith(partialTag) && !possibleTags.includes(tag)) {
+              possibleTags.push(tag);
+            }
+          });
+        }
+      });
+  
+      if (possibleTags.length === 1) {
+        this.input.value = `grep ${possibleTags[0]}`;
+      } else if (possibleTags.length > 1) {
+        const commonPrefix = this.findCommonPrefix(possibleTags);
+        this.input.value = `grep ${commonPrefix}`;
+        this.println(`Possible tags: ${possibleTags.join(", ")}`, "var(--yellow)");
+      }
+    }
+  }
+  
+  findCommonPrefix(strings) {
+    if (!strings.length) return '';
+    const sortedStrings = strings.slice().sort();
+    const first = sortedStrings[0];
+    const last = sortedStrings[sortedStrings.length - 1];
+    let i = 0;
+    while (i < first.length && first[i] === last[i]) {
+      i++;
+    }
+    return first.slice(0, i);
+  }
 }
 
-// Initialize terminal when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   new Terminal();
 });
