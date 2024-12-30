@@ -61,7 +61,7 @@ class Terminal {
 
   handleCommand() {
     const cmdLine = this.input.value.trim();
-    this.println(`Guldu@term:~$ ${cmdLine}`, "var(--green)");
+    this.println(`guest@internethome:~$ ${cmdLine}`, "var(--green)");
 
     if (cmdLine) {
       const [cmd, ...args] = cmdLine.split(" ");

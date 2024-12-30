@@ -455,3 +455,12 @@ code {
 .terminal-toggle:hover {
   background: var(--bg-dark);
 }
+.responsive-header {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .responsive-header {
+    display: block;
+  }
+}
