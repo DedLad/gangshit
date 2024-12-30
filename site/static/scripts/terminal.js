@@ -43,7 +43,7 @@ class Terminal {
       try {
         const response = await fetch("/" + page.CompleteURL);
         var data = await response.text();
-        const content = parser.parseFromString(data, "text/html").body.textContent;
+        const content = parser.parseFromString(data, "text/html").querySelector(".body").textContent;
         this.contentIndex[key] = {
           content: content.toLowerCase(),
           url: page.CompleteURL,
