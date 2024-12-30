@@ -14,7 +14,7 @@ class Terminal {
       grep: this.search.bind(this),
       clear: this.clear.bind(this),
       ls: this.listContents.bind(this),
-      navbar: this.toggleNavbar.bind(this),
+      "toggle-navbar": this.toggleNavbar.bind(this),
     };
 
     this.setupEventListeners();
@@ -85,15 +85,15 @@ class Terminal {
   }
 
   showHelp() {
-    const helpText = `
+    const helpText = `<pre>
 Available commands:
   pwd           - Print current page path
-  cd <path>     - Navigate to a page (e.g., cd index, cd posts/my-post)
+  cd <path>           - Navigate to a page (e.g., cd index, cd posts/my-post)
   ls            - List available pages in current directory
-  grep <term>   - Search for content containing the term
+  grep <term>         - Search for content containing the term
   clear         - Clear terminal output
   help          - Show this help message
-  toggle - Toggle the visibility of the navbar
+  toggle-navbar - Toggle the visibility of the navbar</pre>
 `;
     this.println(helpText, "var(--yellow)");
   }
