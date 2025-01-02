@@ -36,7 +36,7 @@ Yes well if I dont challenge myself or even bet on myself no one is going to, th
 
 At the bottomline, I am more than glad if i can win over the yesterday's me today in any way possible.
 
-Funny enough this was my <span class=accent>_New Year's Resolution_</span> going into 2024. As we approach the end of 2024, So I want to start 2025 with a new addition to my <span class=accent>主義</span>.
+Funny enough this was my <span class=accent>_New Year's Resolution_</span> going into 2024. As we approach the end of 2024, I want to start 2025 with a new addition to my <span class=accent>主義</span>.
 
 ###### What is it going to be?
 
