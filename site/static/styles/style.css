@@ -477,3 +477,7 @@ code {
     display: block;
   }
 }
+
+.accent{
+  color:#689d6a;
+}

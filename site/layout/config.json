@@ -1,7 +1,7 @@
 {
   "navbar": [
     {
-      "Home": "index.html"
+      "Adhesh Athrey": "index.html"
     },
     {
       "Posts": "collections/posts.html"
@@ -11,12 +11,15 @@
     },
     {
       "Tags": "tags.html"
+    },
+    {
+      "Collections": "collections.html"
     }
   ],
   "baseURL": "",
   "siteTitle": "Adhesh Athrey",
   "author": "Adhesh Athrey",
-  "siteScripts": ["theme.js", "terminal.js"],
+  "siteScripts": ["terminal.js"],
   "collectionLayouts": {
     "collections/posts.html": "all-posts"
   }
